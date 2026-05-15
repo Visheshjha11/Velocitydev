@@ -11,7 +11,7 @@ export function FinalCTA() {
           viewport={{ once: true }}
           className="text-[10px] sm:text-[11px] tracking-[0.4em] text-[var(--muted-foreground)] mb-6 font-bold uppercase"
         >
-          // END OF BRIEFING
+          // LET'S CODE
         </motion.div>
         
         <motion.h2 
@@ -46,7 +46,7 @@ export function FinalCTA() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-[10px] tracking-[0.3em] text-[var(--muted-foreground)] font-bold opacity-60"
         >
-          VELOCITY.DEV · DEVELOPER PERFORMANCE ENGINEERING · S01 · v1.0.4
+          VELOCITY.DEV · DEVELOPER PERFORMANCE ENGINEERING
         </motion.div>
       </div>
     </section>

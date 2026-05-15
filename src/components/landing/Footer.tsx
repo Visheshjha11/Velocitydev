@@ -25,10 +25,10 @@ export function Footer() {
                 <div className="w-2 h-2 rounded-full bg-[var(--accent-green)] animate-pulse shadow-[0_0_8px_var(--accent-green)]" />
                 <span className="text-[var(--accent-green)] uppercase">All Systems Operational</span>
               </div> */}
-              <div className="text-[9px] tracking-[0.3em] text-[var(--muted-foreground)] uppercase flex items-center gap-2">
+              {/* <div className="text-[9px] tracking-[0.3em] text-[var(--muted-foreground)] uppercase flex items-center gap-2">
                 <span className="opacity-40">Build</span> 
                 <span className="text-[var(--foreground)] opacity-100">v1-stable</span>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -48,7 +48,7 @@ export function Footer() {
 
           <Cluster title="SOCIAL">
             <FooterLink href="https://github.com/Visheshjha11" external>GitHub</FooterLink>
-            <FooterLink href="https://www.linkedin.com/in/vishesh-jha-dev/" external>LinkedIn</FooterLink>
+            <FooterLink href="https://www.linkedin.com/in/visheshjha11" external>LinkedIn</FooterLink>
             <FooterLink href="https://visheshjha.me" external>Portfolio</FooterLink>
             <FooterLink href="mailto:visheshjha456@gmail.com">Contact Terminal</FooterLink>
           </Cluster>

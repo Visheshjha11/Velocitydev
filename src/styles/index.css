@@ -153,6 +153,29 @@
     background-color: oklch(0.852 0.142 84 / 30%);
     color: var(--color-foreground);
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(1 0 0 / 12%);
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--background);
+  }
 }
 
 @layer utilities {

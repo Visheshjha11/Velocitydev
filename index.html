@@ -6,16 +6,200 @@
     <title>Velocity.dev - Train Like A 10x Developer</title>
     <meta name="description" content="Developer typing and coding fluency platform. Train syntax speed, debugging reflexes, and flow state - built for serious engineers." />
     <meta name="theme-color" content="#111111" />
-    <meta property="og:title" content="Velocity.dev - Train Like A 10x Developer" />
-    <meta property="og:description" content="The competitive training system developers return to daily. Sprint, climb the ladder, hold the streak." />
+    <meta property="og:title" content="Velocity.dev | Train Like A 10x Developer" />
+    <meta property="og:description" content="Master the mechanics of coding. Improve speed, accuracy, and flow state on the ultimate training platform for engineers." />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og-image.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" />
   </head>
-  <body>
+  <body class="bg-[#111111]">
+    <div id="preloader" class="grid-bg">
+      <style>
+        #preloader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #111111;
+          z-index: 99999;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          font-family: "JetBrains Mono", "Geist Mono", monospace;
+          color: #FFC857;
+          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+        }
+        
+        #preloader.grid-bg {
+          background-image:
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          background-size: 32px 32px;
+        }
+
+        .preloader-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+          position: relative;
+        }
+
+        .preloader-logo {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .preloader-box {
+          width: 8px;
+          height: 8px;
+          background: #FFC857;
+          box-shadow: 0 0 20px rgba(255, 200, 87, 0.5);
+          animation: rotateBox 2s infinite linear;
+        }
+
+        .preloader-text {
+          font-size: 14px;
+          letter-spacing: 0.4em;
+          font-weight: 700;
+          text-shadow: 0 0 10px rgba(255, 200, 87, 0.3);
+        }
+
+        .preloader-bar-container {
+          width: 240px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .preloader-bar {
+          width: 100%;
+          height: 1px;
+          background: rgba(255, 200, 87, 0.1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .preloader-progress {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 0%;
+          background: #FFC857;
+          box-shadow: 0 0 10px #FFC857;
+          animation: loadProgress 2.5s cubic-bezier(0.1, 0.5, 0.1, 1) forwards;
+        }
+
+        .preloader-status {
+          font-size: 9px;
+          letter-spacing: 0.2em;
+          opacity: 0.5;
+          text-transform: uppercase;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        @keyframes rotateBox {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        @keyframes loadProgress {
+          0% { width: 0%; }
+          30% { width: 20%; }
+          60% { width: 70%; }
+          100% { width: 100%; }
+        }
+
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        #preloader.fade-out {
+          opacity: 0;
+          visibility: hidden;
+        }
+      </style>
+      
+      <div class="preloader-content">
+        <div class="preloader-logo">
+          <div class="preloader-box"></div>
+          <div class="preloader-text">VELOCITY.DEV</div>
+        </div>
+        <div class="preloader-bar-container">
+          <div class="preloader-bar">
+            <div class="preloader-progress"></div>
+          </div>
+          <div class="preloader-status">
+            <span id="status-text">INITIALIZING...</span>
+            <span id="status-percent">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const preloader = document.getElementById('preloader');
+        const statusText = document.getElementById('status-text');
+        const statusPercent = document.getElementById('status-percent');
+        
+        const messages = [
+          "INITIALIZING...",
+          "LOADING MODULES...",
+          "BOOTING ENGINE...",
+          "CONNECTING...",
+          "READY"
+        ];
+        
+        let progress = 0;
+        let msgIndex = 0;
+        
+        const interval = setInterval(() => {
+          progress += Math.random() * 15;
+          if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            setTimeout(() => {
+              preloader.classList.add('fade-out');
+              // Remove from DOM after transition
+              setTimeout(() => preloader.remove(), 800);
+            }, 500);
+          }
+          
+          statusPercent.textContent = Math.floor(progress) + "%";
+          
+          const targetMsgIndex = Math.floor((progress / 100) * (messages.length - 1));
+          if (targetMsgIndex > msgIndex) {
+            msgIndex = targetMsgIndex;
+            statusText.textContent = messages[msgIndex];
+          }
+        }, 150);
+
+        // Ensure it fades out even if JS takes too long, but usually the interval handles it
+        window.addEventListener('load', () => {
+          // The interval will naturally finish, but we can speed it up if needed
+        });
+      })();
+    </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
