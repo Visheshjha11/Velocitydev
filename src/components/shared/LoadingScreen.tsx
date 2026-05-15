@@ -10,8 +10,13 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const [status, setStatus] = useState("INITIALIZING...");
 
   useEffect(() => {
-    // Check if the environment is a bot/crawler/preview-tool
-    const isBot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|headless|webdriver/i.test(navigator.userAgent) || (window as any).navigator.webdriver;
+    // Check if the environment is a bot/crawler/preview-tool or a Vercel preview deployment
+    const isVercelPreview = window.location.hostname.includes('vercel.app') && 
+                            (window.location.hostname.includes('-git-') || window.location.hostname.includes('-projects-'));
+    
+    const isBot = /bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex|headless|webdriver|lighthouse|chrome-lighthouse|screenshot/i.test(navigator.userAgent) || 
+                  (window as any).navigator.webdriver ||
+                  isVercelPreview;
     
     if (isBot) {
       onComplete();
@@ -68,7 +73,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <motion.span 
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[13px] tracking-[0.5em] font-bold text-[var(--primary)]"
+            className="text-[13px] tracking-[0.5em] font-bold text-[var(--primary)] ml-2"
           >
             VELOCITY.DEV
           </motion.span>
@@ -88,7 +93,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
             <motion.span 
               key={status}
               initial={{ opacity: 0, x: -5 }}
-              animate={{ opacity: 0.6, x: 0 }}
+              animate={{ opacity: 0.5, x: 0 }}
               className="text-[var(--primary)]"
             >
               {status}
