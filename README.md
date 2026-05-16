@@ -6,10 +6,23 @@
 </p>
 
 <p align="center">
-  <a href="https://velocitydev-v1.vercel.app/">Live Demo</a>
+  <a href="https://velocitydev-v1.vercel.app/">Velocity.dev</a>
 </p>
 
 ---
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue" />
+  <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" />
+  <img src="https://img.shields.io/badge/Responsive-000000?style=for-the-badge&logo=googlechrome&logoColor=white" />
+  <img src="https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img src="https://img.shields.io/badge/Open_Source-181717?style=for-the-badge&logo=github&logoColor=white" />
+</p>
+
 
 ## What is Velocity.dev?
 
@@ -38,15 +51,15 @@ From frontend engineers to competitive programmers, Velocity.dev provides a focu
 ---
 
 ## Preview
-
-> Add screenshots or GIF previews here
-
-```txt
-/assets/preview.png
-/assets/demo.gif
-```
-
----
+<p align="center">
+  <a href="https://velocitydev-v1.vercel.app/">
+    <img
+      src="https://raw.githubusercontent.com/Visheshjha11/Velocitydev/main/public/og-image.png"
+      alt="Velocity.dev Preview"
+      width="100%"
+    />
+  </a>
+</p>
 
 ## Tech Stack
 
@@ -147,10 +160,10 @@ Open a pull request with a clear explanation of the changes introduced.
 
 ## License
 
-Licensed under the MIT License.
+No corporate buzzwords. Just code, caffeine, and questionable 2 AM thoughts.
 
 ---
 
 <p align="center">
-  Built for developers who want to type code faster, cleaner, and more accurately.
+  <i>Built for developers who think typing speed is a competitive sport.</i>
 </p>
